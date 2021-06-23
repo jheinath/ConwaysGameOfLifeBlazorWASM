@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using System.Threading
 
 <div>
     <div style="display: table; margin: 0 auto; text-align: center">
@@ -39,20 +40,55 @@
         _gameBoard = GameBoard.Create(Size, new bool[Size,Size]);
     }
 
-        private const int Size = 40;
+    private const int Size = 60;
+    private bool started = false;
     private GameBoard _gameBoard;
 
     private void Start()
     {
-        var startingCells = new bool[Size,Size];
-        startingCells[20, 20] = true;
-        startingCells[21, 21] = true;
-        startingCells[22, 22] = true;
-        startingCells[23, 23] = true;
-        startingCells[24, 24] = true;
-        startingCells[25, 25] = true;
-        startingCells[26, 26] = true;
-        _gameBoard = GameBoard.Create(Size, startingCells);
+        if (started == false)
+        {
+            var startingCells = new bool[Size,Size];
+            startingCells[20, 2] = true;
+            startingCells[20, 3] = true;
+            startingCells[20, 4] = true;
+            startingCells[20, 5] = true;
+            startingCells[20, 6] = true;
+            startingCells[20, 7] = true;
+            startingCells[20, 8] = true;
+            startingCells[20, 9] = true;
+
+            startingCells[20, 10] = true;
+            startingCells[20, 11] = true;
+            startingCells[20, 12] = true;
+            startingCells[20, 13] = true;
+
+            startingCells[20, 17] = true;
+            startingCells[20, 18] = true;
+            startingCells[20, 19] = true;
+
+            startingCells[20, 26] = true;
+            startingCells[20, 27] = true;
+            startingCells[20, 28] = true;
+            startingCells[20, 29] = true;
+            startingCells[20, 30] = true;
+            startingCells[20, 31] = true;
+            startingCells[20, 32] = true;
+
+            startingCells[20, 34] = true;
+            startingCells[20, 35] = true;
+            startingCells[20, 36] = true;
+            startingCells[20, 37] = true;
+            startingCells[20, 38] = true;
+
+
+
+
+            _gameBoard = GameBoard.Create(Size, startingCells);
+            started = true;
+        }
+
+        _gameBoard.Update();
     }
 
     private void Stop()
