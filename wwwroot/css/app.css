@@ -1,5 +1,19 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+#gridWrapper {
+    margin: 0.5em;
+    border: 2px solid #808080;
+    display: grid;
+    justify-items: start;
+    text-align: center;
+    height: auto;
+}
+
+#gridWrapper div {
+    background-color: black;
+    justify-self: stretch;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

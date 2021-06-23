@@ -1,7 +1,63 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<div>
+    <div style="display: table; margin: 0 auto; text-align: center">
+        <h1>Conways Game of Life</h1>
 
-Welcome to your new app.
+        <div id="gridWrapper" style="grid-template-rows: repeat(@Size, 1em); grid-template-columns: repeat(@Size, 1em);">
+            @for (var i = 1; i <= Size; i++)
+            {
+                for (var j = 1; j <= Size; j++)
+                {
+                    if (_gameBoard.Cells[i-1, j-1])
+                    {
+                        <div style="grid-column: @i; grid-row: @j; background-color: black"></div>
+                    }
+                    else
+                    {
+                        <div style="grid-column: @i; grid-row: @j; background-color: white"></div>
+                    }
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+                }
+            }
+        </div>
+        <div style="display: flex; justify-content: space-evenly">
+            <button class="btn btn-primary" style="width: 30%;" @onclick="Start">Start</button>
+            <button class="btn btn-primary" style="width: 30%;" @onclick="Stop">Stop</button>
+        </div>
+    </div>
+        
+</div>
+
+
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _gameBoard = GameBoard.Create(Size, new bool[Size,Size]);
+    }
+
+        private const int Size = 40;
+    private GameBoard _gameBoard;
+
+    private void Start()
+    {
+        var startingCells = new bool[Size,Size];
+        startingCells[20, 20] = true;
+        startingCells[21, 21] = true;
+        startingCells[22, 22] = true;
+        startingCells[23, 23] = true;
+        startingCells[24, 24] = true;
+        startingCells[25, 25] = true;
+        startingCells[26, 26] = true;
+        _gameBoard = GameBoard.Create(Size, startingCells);
+    }
+
+    private void Stop()
+    {
+        _gameBoard = GameBoard.Create(Size, new bool[Size,Size]);
+    }
+
+}
