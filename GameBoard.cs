@@ -82,12 +82,13 @@ namespace ConwaysGameOfLifeBlazorWASM
 
             for (var i = -1; i < 2; i++)
             {
-                for (var j = -1; j < 2; j++)
+                for (var j = -1; j < 2; j++) 
                 {
                     if ((i+x >= 0 && i+x < Cells.GetLength(0)) && (j+y >= 0 && j+y < Cells.GetLength(1)))
                     {
                         if ((i == 0 && j == 0) == false)
                             result.Add(Cells[i+x, j+y]);
+                        
                     }
                 }
             }
