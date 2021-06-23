@@ -10,21 +10,22 @@
             {
                 for (var j = 1; j <= Size; j++)
                 {
+                    var x = i-1;
+                    var y = j-1;
                     if (_gameBoard.Cells[i-1, j-1])
                     {
-                        <div style="grid-column: @i; grid-row: @j; background-color: black"></div>
+                        <div style="grid-column: @i; grid-row: @j; background-color: black" @onclick="e => ToggleState(x, y)"></div>
                     }
                     else
                     {
-                        <div style="grid-column: @i; grid-row: @j; background-color: white"></div>
+                        <div style="grid-column: @i; grid-row: @j; background-color: white" @onclick="e => ToggleState(x, y)"></div>
                     }
 
                 }
             }
         </div>
         <div style="display: flex; justify-content: space-evenly">
-            <button class="btn btn-primary" style="width: 30%;" @onclick="Start">Start</button>
-            <button class="btn btn-primary" style="width: 30%;" @onclick="Stop">Stop</button>
+            <button class="btn btn-primary" style="width: 30%;" @onclick="Update">Update</button>
         </div>
     </div>
         
@@ -41,59 +42,16 @@
     }
 
     private const int Size = 60;
-    private bool started = false;
     private GameBoard _gameBoard;
 
-    private void Start()
+    public void ToggleState(int x, int y)
     {
-        if (started == false)
-        {
-            var startingCells = new bool[Size,Size];
-            startingCells[20, 2] = true;
-            startingCells[20, 3] = true;
-            startingCells[20, 4] = true;
-            startingCells[20, 5] = true;
-            startingCells[20, 6] = true;
-            startingCells[20, 7] = true;
-            startingCells[20, 8] = true;
-            startingCells[20, 9] = true;
+        var currentState = _gameBoard.Cells[x, y];
+        _gameBoard.Cells[x, y] = !currentState;
+    }
 
-            startingCells[20, 10] = true;
-            startingCells[20, 11] = true;
-            startingCells[20, 12] = true;
-            startingCells[20, 13] = true;
-
-            startingCells[20, 17] = true;
-            startingCells[20, 18] = true;
-            startingCells[20, 19] = true;
-
-            startingCells[20, 26] = true;
-            startingCells[20, 27] = true;
-            startingCells[20, 28] = true;
-            startingCells[20, 29] = true;
-            startingCells[20, 30] = true;
-            startingCells[20, 31] = true;
-            startingCells[20, 32] = true;
-
-            startingCells[20, 34] = true;
-            startingCells[20, 35] = true;
-            startingCells[20, 36] = true;
-            startingCells[20, 37] = true;
-            startingCells[20, 38] = true;
-
-
-
-
-            _gameBoard = GameBoard.Create(Size, startingCells);
-            started = true;
-        }
-
+    private void Update()
+    {
         _gameBoard.Update();
     }
-
-    private void Stop()
-    {
-        _gameBoard = GameBoard.Create(Size, new bool[Size,Size]);
-    }
-
 }

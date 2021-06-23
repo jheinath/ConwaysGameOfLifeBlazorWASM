@@ -7,6 +7,7 @@
     justify-items: start;
     text-align: center;
     height: auto;
+    cursor: crosshair;
 }
 
 #gridWrapper div {

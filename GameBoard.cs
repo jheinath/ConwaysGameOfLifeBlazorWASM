@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
@@ -55,6 +56,11 @@ namespace ConwaysGameOfLifeBlazorWASM
             var neighborCells = GetNeighborCells(x, y);
             var neighborCellsAliveCount = neighborCells.Count(cell => cell);
 
+            if (isCellCurrentlyAlive)
+            {
+                Console.WriteLine(neighborCellsAliveCount);
+            }
+
             if (isCellCurrentlyAlive == false && neighborCellsAliveCount == 3)
                 return true;
 
@@ -80,10 +86,12 @@ namespace ConwaysGameOfLifeBlazorWASM
                 {
                     if ((i+x >= 0 && i+x < Cells.GetLength(0)) && (j+y >= 0 && j+y < Cells.GetLength(1)))
                     {
-                        result.Add(Cells[i+x, j+y]);
+                        if ((i == 0 && j == 0) == false)
+                            result.Add(Cells[i+x, j+y]);
                     }
                 }
             }
+
 
             return result;
         }
