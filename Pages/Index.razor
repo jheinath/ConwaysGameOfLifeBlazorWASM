@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using System.Threading
 
 <div>
     <div style="display: table; margin: 0 auto; text-align: center">
@@ -24,7 +25,8 @@
             }
         </div>
         <div style="display: flex; justify-content: space-evenly">
-            <button class="btn btn-primary" style="width: 30%;" @onclick="Update">Update</button>
+            <button class="btn btn-primary" style="width: 30%;" @onclick="Start">Start</button>
+            <button class="btn btn-primary" style="width: 30%;" @onclick="Stop">Stop</button>
         </div>
     </div>
         
@@ -33,15 +35,9 @@
 
 
 @code {
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        _gameBoard = GameBoard.Create(Size, new bool[Size,Size]);
-    }
-
-    private const int Size = 60;
+    private const int Size = 40;
     private GameBoard _gameBoard;
+    private bool _isStarted;
 
     public void ToggleState(int x, int y)
     {
@@ -49,8 +45,27 @@
         _gameBoard.Cells[x, y] = !currentState;
     }
 
-    private void Update()
+    private async Task Start()
     {
-        _gameBoard.Update();
+        _isStarted = true;
+        while (_isStarted)
+        {
+            await Task.Delay(50);
+            _gameBoard.Update();
+            StateHasChanged();
+        }
     }
+
+    private void Stop()
+    {
+        _isStarted = false;
+
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized(); _gameBoard = GameBoard.Create(Size, new bool[Size, Size]);
+        _isStarted = false;
+    }
+
 }
