@@ -25,8 +25,8 @@
             }
         </div>
         <div style="display: flex; justify-content: space-evenly">
-            <button class="btn btn-primary" style="width: 30%;" @onclick="Start">Start</button>
-            <button class="btn btn-primary" style="width: 30%;" @onclick="Stop">Stop</button>
+            <button class="btn btn-primary" style="width: 30%;" disabled="@_isStarted" @onclick="Start">Start</button>
+            <button class="btn btn-primary" style="width: 30%;" disabled="@(_isStarted == false)" @onclick="Stop">Stop</button>
         </div>
     </div>
         
