@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ConwaysGameOfLifeBlazorWASM
@@ -88,6 +89,19 @@ namespace ConwaysGameOfLifeBlazorWASM
 
 
             return result;
+        }
+
+        public void Randomize()
+        {
+            var random = new Random();
+
+            for (var i = 0; i < Cells.GetLength(0); i++)
+            {
+                for (var j = 0; j < Cells.GetLength(1); j++)
+                {
+                    Cells[i, j] = random.Next(-1, 2) == 0;
+                }
+            }
         }
     }
 }
