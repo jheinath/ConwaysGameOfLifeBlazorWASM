@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using System.Threading
 
 <div>
     <div style="display: table; margin: 0 auto; text-align: center">
@@ -28,6 +27,10 @@
             <button class="btn btn-primary" style="width: 30%;" disabled="@_isStarted" @onclick="Start">Start</button>
             <button class="btn btn-primary" style="width: 30%;" disabled="@(_isStarted == false)" @onclick="Stop">Stop</button>
         </div>
+        <br/>
+        <div style="display: flex; justify-content: space-evenly">
+            <button class="btn btn-primary" style="width: 30%;" disabled="@_isStarted" @onclick="RandomizeGameBoard">Go Random</button>
+        </div>
     </div>
         
 </div>
@@ -43,6 +46,11 @@
     {
         var currentState = _gameBoard.Cells[x, y];
         _gameBoard.Cells[x, y] = !currentState;
+    }
+
+    private void RandomizeGameBoard()
+    {
+        _gameBoard.Randomize();
     }
 
     private async Task Start()
