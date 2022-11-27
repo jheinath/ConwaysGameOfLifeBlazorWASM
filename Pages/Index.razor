@@ -30,6 +30,7 @@
         <br/>
         <div style="display: flex; justify-content: space-evenly">
             <button class="btn btn-primary" style="width: 30%;" disabled="@_isStarted" @onclick="RandomizeGameBoard">Go Random</button>
+            <button class="btn btn-primary" style="width: 30%;" @onclick="Reset">Reset</button>
         </div>
     </div>
         
@@ -76,4 +77,9 @@
         _isStarted = false;
     }
 
+    private void Reset()
+    {
+        _isStarted = false;
+        _gameBoard.Reset();
+    }
 }

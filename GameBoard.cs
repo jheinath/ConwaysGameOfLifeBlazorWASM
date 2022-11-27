@@ -103,5 +103,16 @@ namespace ConwaysGameOfLifeBlazorWASM
                 }
             }
         }
+
+        public void Reset()
+        {
+            for (var i = 0; i < Cells.GetLength(0); i++)
+            {
+                for (var j = 0; j < Cells.GetLength(1); j++)
+                {
+                    Cells[i, j] = false;
+                }
+            }
+        }
     }
 }
