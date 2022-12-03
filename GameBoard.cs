@@ -8,6 +8,18 @@ namespace ConwaysGameOfLifeBlazorWASM
     {
         public bool[,] Cells { get; private set; }
 
+        public bool IsNoCellAlive()
+        {
+            for (var i = 0; i < Cells.GetLength(0); i++)
+            {
+                for (var j = 0; j < Cells.GetLength(1); j++)
+                {
+                    if (Cells[i, j]) return false;
+                }
+            }
+
+            return true;
+        }
         private GameBoard(int size, bool[,] startingCells)
         {
             Cells = new bool[size, size];

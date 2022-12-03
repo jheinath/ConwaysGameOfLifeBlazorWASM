@@ -2,8 +2,13 @@
 
 <div>
     <div style="display: table; margin: 0 auto; text-align: center">
-        <h1>Conway's Game of Life</h1>
-
+        <div class="card">
+            <div class="card-body">
+                <h1>Conway's Game of Life</h1>
+                <h5 class="card-title">Population Count</h5>
+                <p class="card-text">@_populationCount</p>
+            </div>
+        </div>        
         <div id="gridWrapper" style="grid-template-rows: repeat(@Size, 1em); grid-template-columns: repeat(@Size, 1em);">
             @for (var i = 1; i <= Size; i++)
             {
@@ -42,6 +47,7 @@
     private const int Size = 40;
     private GameBoard _gameBoard;
     private bool _isStarted;
+    private int _populationCount;
 
     public void ToggleState(int x, int y)
     {
@@ -61,7 +67,10 @@
         {
             await Task.Delay(50);
             _gameBoard.Update();
+            _populationCount++;
             StateHasChanged();
+            if (_gameBoard.IsNoCellAlive())
+                _isStarted = false;
         }
     }
 
@@ -75,11 +84,13 @@
     {
         base.OnInitialized(); _gameBoard = GameBoard.Create(Size, new bool[Size, Size]);
         _isStarted = false;
+        _populationCount = 0;
     }
 
     private void Reset()
     {
         _isStarted = false;
+        _populationCount = 0;
         _gameBoard.Reset();
     }
 }
