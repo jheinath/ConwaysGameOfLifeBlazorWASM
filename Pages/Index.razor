@@ -1,19 +1,19 @@
 ﻿@page "/"
 @using System.Diagnostics
-@inject IJSRuntime JS
+@inject IJSRuntime Js
 
 <div class="bg-light">
     <div style="display: table; margin: 0 auto; text-align: center">
         <div class="card bg-light">
-            <h2 class="mt-2">Conway's Game of Life</h2>
+            <h2 class="mt-2 text-dark">Conway's Game of Life</h2>
             <div class="card-body d-flex justify-content-around bg-light">
                 <div>
-                    <h5 class="card-title">Population Count</h5>
-                    <p class="card-text">@_populationCount</p>
+                    <h5 class="card-title text-dark">Population Count</h5>
+                    <p class="card-text text-dark">@_populationCount</p>
                 </div>
                 <div>
-                    <h5 class="card-title">Timer</h5>
-                    <p class="card-text">@_timer.Elapsed.ToString(@"mm\:ss\.ff")</p>
+                    <h5 class="card-title text-dark">Timer</h5>
+                    <p class="card-text text-dark">@_timer.Elapsed.ToString(@"mm\:ss\.ff")</p>
                 </div>
             </div>
         </div>        
@@ -26,11 +26,11 @@
                     var y = j-1;
                     if (_gameBoard.Cells[i-1, j-1])
                     {
-                        <div class="bg-dark" style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)"></div>
+                        <div style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)" class="bg-black"></div>
                     }
                     else
                     {
-                        <div class="bg-white" style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)"></div>
+                        <div style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)" class="bg-white"></div>
                     }
 
                 }
@@ -55,7 +55,7 @@
 
     private async Task ToggleDarkMode()
     {
-        await JS.InvokeVoidAsync("toggleDarkMode");
+        await Js.InvokeVoidAsync("toggleDarkMode");
     }
     
     private void ToggleState(int x, int y)
