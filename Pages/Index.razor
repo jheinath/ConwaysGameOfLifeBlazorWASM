@@ -1,11 +1,12 @@
 ﻿@page "/"
 @using System.Diagnostics
+@inject IJSRuntime JS
 
-<div>
+<div class="bg-light">
     <div style="display: table; margin: 0 auto; text-align: center">
-        <div class="card">
+        <div class="card bg-light">
             <h2 class="mt-2">Conway's Game of Life</h2>
-            <div class="card-body d-flex justify-content-around">
+            <div class="card-body d-flex justify-content-around bg-light">
                 <div>
                     <h5 class="card-title">Population Count</h5>
                     <p class="card-text">@_populationCount</p>
@@ -25,11 +26,11 @@
                     var y = j-1;
                     if (_gameBoard.Cells[i-1, j-1])
                     {
-                        <div style="grid-column: @i; grid-row: @j; background-color: black" @onclick="_ => ToggleState(x, y)"></div>
+                        <div class="bg-dark" style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)"></div>
                     }
                     else
                     {
-                        <div style="grid-column: @i; grid-row: @j; background-color: white" @onclick="_ => ToggleState(x, y)"></div>
+                        <div class="bg-white" style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)"></div>
                     }
 
                 }
@@ -40,18 +41,24 @@
             <button class="btn btn-primary btn-sm mr-1 ml-1" disabled="@(_isStarted == false)" @onclick="Stop">Stop</button>
             <button class="btn btn-primary btn-sm mr-1 ml-1" disabled="@_isStarted" @onclick="RandomizeGameBoard">Go Random</button>
             <button class="btn btn-primary btn-sm mr-1 ml-1" @onclick="Reset">Reset</button>
+            <button class="btn btn-primary btn-sm mr-1 ml-1" @onclick="ToggleDarkMode">Dark Mode</button>
         </div>
     </div>
 </div>
 
 @code {
-    private const int Size = 40;
+        private const int Size = 40;
     private GameBoard _gameBoard;
     private bool _isStarted;
     private int _populationCount;
     private Stopwatch _timer;
 
-    public void ToggleState(int x, int y)
+    private async Task ToggleDarkMode()
+    {
+        await JS.InvokeVoidAsync("toggleDarkMode");
+    }
+    
+    private void ToggleState(int x, int y)
     {
         var currentState = _gameBoard.Cells[x, y];
         _gameBoard.Cells[x, y] = !currentState;
@@ -86,7 +93,8 @@
 
     protected override void OnInitialized()
     {
-        base.OnInitialized(); _gameBoard = GameBoard.Create(Size, new bool[Size, Size]);
+        base.OnInitialized();
+        _gameBoard = GameBoard.Create(Size, new bool[Size, Size]);
         _isStarted = false;
         _populationCount = 0;
         _timer = new Stopwatch();
