@@ -25,30 +25,24 @@
                     var y = j-1;
                     if (_gameBoard.Cells[i-1, j-1])
                     {
-                        <div style="grid-column: @i; grid-row: @j; background-color: black" @onclick="e => ToggleState(x, y)"></div>
+                        <div style="grid-column: @i; grid-row: @j; background-color: black" @onclick="_ => ToggleState(x, y)"></div>
                     }
                     else
                     {
-                        <div style="grid-column: @i; grid-row: @j; background-color: white" @onclick="e => ToggleState(x, y)"></div>
+                        <div style="grid-column: @i; grid-row: @j; background-color: white" @onclick="_ => ToggleState(x, y)"></div>
                     }
 
                 }
             }
         </div>
-        <div style="display: flex; justify-content: space-evenly">
-            <button class="btn btn-primary" style="width: 30%;" disabled="@_isStarted" @onclick="Start">Start</button>
-            <button class="btn btn-primary" style="width: 30%;" disabled="@(_isStarted == false)" @onclick="Stop">Stop</button>
-        </div>
-        <br/>
-        <div style="display: flex; justify-content: space-evenly">
-            <button class="btn btn-primary" style="width: 30%;" disabled="@_isStarted" @onclick="RandomizeGameBoard">Go Random</button>
-            <button class="btn btn-primary" style="width: 30%;" @onclick="Reset">Reset</button>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary btn-sm mr-1 ml-1" disabled="@_isStarted" @onclick="Start">Start</button>
+            <button class="btn btn-primary btn-sm mr-1 ml-1" disabled="@(_isStarted == false)" @onclick="Stop">Stop</button>
+            <button class="btn btn-primary btn-sm mr-1 ml-1" disabled="@_isStarted" @onclick="RandomizeGameBoard">Go Random</button>
+            <button class="btn btn-primary btn-sm mr-1 ml-1" @onclick="Reset">Reset</button>
         </div>
     </div>
-        
 </div>
-
-
 
 @code {
     private const int Size = 40;
