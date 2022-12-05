@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "ConwaysGameOfLifeBlazorWASM.dll": "sha256-P8RzrmKLEBTIL9SDSJNU+VslYaQRt0RMlhF\/ImwTQzg=",
+      "ConwaysGameOfLifeBlazorWASM.dll": "sha256-SVt8or\/QfVQUw9Pny3DXD6c33w3LUcuR88j\/SbVic60=",
       "Microsoft.AspNetCore.Components.dll": "sha256-qPu6eKdTBCakBJCJ9\/7Gc1VqkuGIov+CyL8ScuSj0mQ=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-IRzWj7ckp5HJtON1hOY+tag27+PLKqf4w4FnllJ+KWI=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-c9Jj3AbOglZYOJpVEqaHDRX0gJ3TUeN0Z+a1cOlhXEk=",
