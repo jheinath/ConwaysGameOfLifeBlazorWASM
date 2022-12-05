@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "ConwaysGameOfLifeBlazorWASM.dll": "sha256-\/3FdsubtxZ89p6Aco34+pIGL1peAWOsXCdlYmuuN1Tc=",
+      "ConwaysGameOfLifeBlazorWASM.dll": "sha256-P8RzrmKLEBTIL9SDSJNU+VslYaQRt0RMlhF\/ImwTQzg=",
       "Microsoft.AspNetCore.Components.dll": "sha256-qPu6eKdTBCakBJCJ9\/7Gc1VqkuGIov+CyL8ScuSj0mQ=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-IRzWj7ckp5HJtON1hOY+tag27+PLKqf4w4FnllJ+KWI=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-c9Jj3AbOglZYOJpVEqaHDRX0gJ3TUeN0Z+a1cOlhXEk=",
@@ -29,11 +29,11 @@
       "System.Memory.dll": "sha256-mxH68hfT2Zi5DOKZuc\/0R8FgB0S\/z\/ETbq6OCIu5kQ8=",
       "System.Net.Http.dll": "sha256-X5R1ZMINm7KHi9RboNhaNmxOcjoXr5hetE\/GMYOvjlw=",
       "System.Net.Primitives.dll": "sha256-OSU4N4XKqTKgdoO9pe\/BfZLehucijGO4k8igT7uzo\/A=",
-      "System.Private.CoreLib.dll": "sha256-u0TypXi8+tJ4t6010qNH6RNnX1YMcZDb0b9HoFY3hPI=",
+      "System.Private.CoreLib.dll": "sha256-iI6nGaJzQvsxq8S+87xs3yxlp84deW5JqFrNCa+dzb0=",
       "System.Private.Runtime.InteropServices.JavaScript.dll": "sha256-qi77gYVxMlCsbJi31oZqGaIW077cYdFy3LFk+dt2z6k=",
       "System.Private.Uri.dll": "sha256-LwHecQtBtNw8eIBpUBg03RXEXenbeHT18f0iFhb8M6M=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-NJPcPizDV6A4CjOnszxYro9mJMWaHq2cGM2\/A0bAFNY=",
-      "System.Runtime.dll": "sha256-1E5Demfc\/KQEFIZOb8FmeZD6vg46GmYNCaJvdQwHdjA=",
+      "System.Runtime.dll": "sha256-Rh35EqY7UYNMHphGb7RvYEvCV4\/m5yhqFEIirFM6s+o=",
       "System.Text.Encodings.Web.dll": "sha256-gUV2fOrOUGrNK6Oj1AxlN44sKTuN4hYA1DxX8xuRU2c=",
       "System.Text.Json.dll": "sha256-JqsfW50WFKqrjpqWUq9Ium5diNkoTKkumNONBkI3sik="
     },
