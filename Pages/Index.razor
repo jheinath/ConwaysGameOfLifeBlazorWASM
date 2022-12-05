@@ -26,11 +26,11 @@
                     var y = j-1;
                     if (_gameBoard.Cells[i-1, j-1])
                     {
-                        <div style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)" class="bg-black"></div>
+                        <div style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)" class="bg-black" id="box@i"></div>
                     }
                     else
                     {
-                        <div style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)" class="bg-white"></div>
+                        <div style="grid-column: @i; grid-row: @j;" @onclick="_ => ToggleState(x, y)" class="bg-white" id="box@i"></div>
                     }
 
                 }
