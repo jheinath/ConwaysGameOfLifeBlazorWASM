@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "ConwaysGameOfLifeBlazorWASM.dll": "sha256-SVt8or\/QfVQUw9Pny3DXD6c33w3LUcuR88j\/SbVic60=",
+      "ConwaysGameOfLifeBlazorWASM.dll": "sha256-7A\/ofkJlriMZmDMa3HLm2eD9yzdpV+ZDIfQktozw1os=",
       "Microsoft.AspNetCore.Components.dll": "sha256-qPu6eKdTBCakBJCJ9\/7Gc1VqkuGIov+CyL8ScuSj0mQ=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-IRzWj7ckp5HJtON1hOY+tag27+PLKqf4w4FnllJ+KWI=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-c9Jj3AbOglZYOJpVEqaHDRX0gJ3TUeN0Z+a1cOlhXEk=",
@@ -33,7 +33,7 @@
       "System.Private.Runtime.InteropServices.JavaScript.dll": "sha256-qi77gYVxMlCsbJi31oZqGaIW077cYdFy3LFk+dt2z6k=",
       "System.Private.Uri.dll": "sha256-LwHecQtBtNw8eIBpUBg03RXEXenbeHT18f0iFhb8M6M=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-NJPcPizDV6A4CjOnszxYro9mJMWaHq2cGM2\/A0bAFNY=",
-      "System.Runtime.dll": "sha256-Rh35EqY7UYNMHphGb7RvYEvCV4\/m5yhqFEIirFM6s+o=",
+      "System.Runtime.dll": "sha256-Y3m8IG3VSPGrKeBz17pRNYP9tl8GVNKbz+b1SFMlc6M=",
       "System.Text.Encodings.Web.dll": "sha256-gUV2fOrOUGrNK6Oj1AxlN44sKTuN4hYA1DxX8xuRU2c=",
       "System.Text.Json.dll": "sha256-JqsfW50WFKqrjpqWUq9Ium5diNkoTKkumNONBkI3sik="
     },
