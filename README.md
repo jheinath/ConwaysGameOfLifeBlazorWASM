@@ -1,6 +1,6 @@
 # ConwaysGameOfLifeBlazorWASM
 
-Just a small project to learn some Blazor. Moreover I always wanted to code Conway's Game of Live. So here's my try.
+Just a small project to learn some Blazor. Moreover I always wanted to code Conway's Game of Life. So here's my try.
 Play with it here: https://jheinath.github.io/ConwaysGameOfLifeBlazorWASM/
 
 If you don't know about Conway's Game of Life check this out: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life 
