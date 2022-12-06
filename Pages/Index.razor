@@ -3,6 +3,12 @@
 @inject IJSRuntime Js
 
 <div class="bg-light">
+    <div class="d-flex justify-content-end">
+        <div class="custom-control custom-switch bg-light  prevent-select">
+            <input type="checkbox" class="custom-control-input" id="darkModeSwitch" @onclick="ToggleDarkMode">
+            <label class="custom-control-label text-dark" for="darkModeSwitch">Dark Mode</label>
+        </div>
+    </div>
     <div style="display: table; margin: 0 auto; text-align: center">
         <div class="card bg-light">
             <h2 class="mt-2 text-dark">Conway's Game of Life</h2>
@@ -16,15 +22,15 @@
                     <p class="card-text text-dark">@_timer.Elapsed.ToString(@"mm\:ss\.ff")</p>
                 </div>
             </div>
-        </div>        
+        </div>
         <div id="gridWrapper" style="grid-template-rows: repeat(@Size, 1em); grid-template-columns: repeat(@Size, 1em);">
             @for (var i = 1; i <= Size; i++)
             {
                 for (var j = 1; j <= Size; j++)
                 {
-                    var x = i-1;
-                    var y = j-1;
-                    if (_gameBoard.Cells[i-1, j-1])
+                    var x = i - 1;
+                    var y = j - 1;
+                    if (_gameBoard.Cells[i - 1, j - 1])
                     {
                         <div style="grid-column: @i; grid-row: @j; background-color: #343a40!important" @onclick="_ => ToggleState(x, y)"></div>
                     }
@@ -41,7 +47,6 @@
             <button class="btn btn-primary btn-sm mr-1 ml-1" disabled="@(_isStarted == false)" @onclick="Stop">Stop</button>
             <button class="btn btn-primary btn-sm mr-1 ml-1" disabled="@_isStarted" @onclick="RandomizeGameBoard">Go Random</button>
             <button class="btn btn-primary btn-sm mr-1 ml-1" @onclick="Reset">Reset</button>
-            <button class="btn btn-primary btn-sm mr-1 ml-1" @onclick="ToggleDarkMode">Dark Mode</button>
         </div>
     </div>
 </div>
