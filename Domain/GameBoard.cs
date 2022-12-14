@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConwaysGameOfLifeBlazorWASM
+namespace ConwaysGameOfLifeBlazorWASM.Domain
 {
     public class GameBoard
     {
         public bool[,] Cells { get; private set; }
+        public IEnumerable<TemplatePattern> TemplatePatterns { get; }
+        public IEnumerable<TemplatePattern> OscillatorTemplatePattern =>
+            TemplatePatterns.Where(x => x.PatternType == PatternType.Oscillator);
+        public IEnumerable<TemplatePattern> SpaceshipTemplatePattern =>
+            TemplatePatterns.Where(x => x.PatternType == PatternType.Spaceship);
 
         public bool IsNoCellAlive()
         {
@@ -22,6 +27,7 @@ namespace ConwaysGameOfLifeBlazorWASM
         }
         private GameBoard(int size, bool[,] startingCells)
         {
+            TemplatePatterns = GetTemplatePatterns();
             Cells = new bool[size, size];
 
             for (var i = 0; i < Cells.GetLength(0); i++)
@@ -123,6 +129,52 @@ namespace ConwaysGameOfLifeBlazorWASM
                 for (var j = 0; j < Cells.GetLength(1); j++)
                 {
                     Cells[i, j] = false;
+                }
+            }
+        }
+
+        private static IEnumerable<TemplatePattern> GetTemplatePatterns()
+        {
+            var blinker = new TemplatePattern
+            {
+                Name = "Blinker",
+                Cells = new bool[1, 3],
+                PatternType = PatternType.Oscillator
+            };
+            blinker.Cells[0, 0] = true;
+            blinker.Cells[0, 1] = true;
+            blinker.Cells[0, 2] = true;
+
+            var toad = new TemplatePattern
+            {
+                Name = "Toad",
+                Cells = new bool[4, 4],
+                PatternType = PatternType.Oscillator
+            };
+            toad.Cells[2, 0] = true;
+            toad.Cells[0, 1] = true;
+            toad.Cells[3, 1] = true;
+            toad.Cells[0, 2] = true;
+            toad.Cells[3, 2] = true;
+            toad.Cells[1, 3] = true;
+            
+            return new List<TemplatePattern>
+            {
+                blinker,
+                toad,
+            };
+        }
+
+        public void ApplyTemplatePattern(string templatePatternName, int x, int y)
+        {
+            var selectedTemplate = TemplatePatterns.FirstOrDefault(pattern => pattern.Name == templatePatternName);
+            if (selectedTemplate is null) return;
+            
+            for (var i = 0; i < selectedTemplate.Cells.GetLength(0); i++)
+            {
+                for (var j = 0; j < selectedTemplate.Cells.GetLength(1); j++)
+                {
+                    Cells[i + x, y + j] = selectedTemplate.Cells[i, j];
                 }
             }
         }
