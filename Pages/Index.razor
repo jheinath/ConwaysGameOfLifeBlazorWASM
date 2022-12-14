@@ -4,16 +4,17 @@
 @inject IJSRuntime Js
 
 <div class="bg-light">
-    <div class="d-flex justify-content-end">
-        <div class="custom-control custom-switch bg-light  prevent-select">
-            <input type="checkbox" class="custom-control-input" id="darkModeSwitch" @onclick="ToggleDarkMode">
-            <label class="custom-control-label text-dark" for="darkModeSwitch">Dark Mode</label>
-        </div>
-    </div>
     <div style="display: table; margin: 0 auto; text-align: center">
         <div class="card bg-light mb-2">
             <div class="card-header">
-                <h4 class="mt-2 text-dark">Conway's Game of Life</h4>
+                <div class="d-flex justify-content-between">
+                    <div style="opacity: 0">Easter egg found</div>
+                    <h4 class="text-dark pt-0 pb-0 mb-0 mt-0">Conway's Game of Life</h4>
+                    <div class="custom-control custom-switch prevent-select align-self-end">
+                        <input type="checkbox" class="custom-control-input" id="darkModeSwitch" @onclick="ToggleDarkMode">
+                        <label class="custom-control-label text-dark" for="darkModeSwitch">Dark Mode</label>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="card-body d-flex justify-content-around bg-light m-0 p-1">
@@ -119,7 +120,7 @@
     {
         _template = null;
     }
-    
+
     private void SelectTemplatePattern(string templateName)
     {
         _template = templateName;
@@ -187,4 +188,5 @@
         _gameBoard.Reset();
         _populationCount = 0;
     }
+
 }
