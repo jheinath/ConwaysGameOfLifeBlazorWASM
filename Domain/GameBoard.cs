@@ -25,9 +25,10 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
 
             return true;
         }
+
         private GameBoard(int size, bool[,] startingCells)
         {
-            TemplatePatterns = GetTemplatePatterns();
+            TemplatePatterns = TemplatePatternsLibrary.GetTemplatePatterns();
             Cells = new bool[size, size];
 
             for (var i = 0; i < Cells.GetLength(0); i++)
@@ -131,38 +132,6 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
                     Cells[i, j] = false;
                 }
             }
-        }
-
-        private static IEnumerable<TemplatePattern> GetTemplatePatterns()
-        {
-            var blinker = new TemplatePattern
-            {
-                Name = "Blinker",
-                Cells = new bool[1, 3],
-                PatternType = PatternType.Oscillator
-            };
-            blinker.Cells[0, 0] = true;
-            blinker.Cells[0, 1] = true;
-            blinker.Cells[0, 2] = true;
-
-            var toad = new TemplatePattern
-            {
-                Name = "Toad",
-                Cells = new bool[4, 4],
-                PatternType = PatternType.Oscillator
-            };
-            toad.Cells[2, 0] = true;
-            toad.Cells[0, 1] = true;
-            toad.Cells[3, 1] = true;
-            toad.Cells[0, 2] = true;
-            toad.Cells[3, 2] = true;
-            toad.Cells[1, 3] = true;
-            
-            return new List<TemplatePattern>
-            {
-                blinker,
-                toad,
-            };
         }
 
         public void ApplyTemplatePattern(string templatePatternName, int x, int y)
