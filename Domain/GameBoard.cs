@@ -174,7 +174,11 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
             {
                 for (var j = 0; j < selectedTemplate.Cells.GetLength(1); j++)
                 {
-                    Cells[i + x, y + j] = selectedTemplate.Cells[i, j];
+                    var calculatedX = i + x;
+                    var calculatedY = y + j;
+                    if (calculatedX >= Cells.GetLength(0)) return;
+                    if (calculatedY >= Cells.GetLength(1)) return;
+                    Cells[calculatedX, calculatedY] = selectedTemplate.Cells[i, j];
                 }
             }
         }
