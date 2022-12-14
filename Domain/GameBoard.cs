@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConwaysGameOfLifeBlazorWASM
+namespace ConwaysGameOfLifeBlazorWASM.Domain
 {
     public class GameBoard
     {
         public bool[,] Cells { get; private set; }
+        public IEnumerable<TemplatePattern> TemplatePatterns { get; }
 
         public bool IsNoCellAlive()
         {
@@ -22,6 +23,7 @@ namespace ConwaysGameOfLifeBlazorWASM
         }
         private GameBoard(int size, bool[,] startingCells)
         {
+            TemplatePatterns = GetTemplatePatterns();
             Cells = new bool[size, size];
 
             for (var i = 0; i < Cells.GetLength(0); i++)
@@ -125,6 +127,23 @@ namespace ConwaysGameOfLifeBlazorWASM
                     Cells[i, j] = false;
                 }
             }
+        }
+
+        private static IEnumerable<TemplatePattern> GetTemplatePatterns()
+        {
+            return new List<TemplatePattern>
+            {
+                new()
+                {
+                    Name = "Blinker",
+                    Cells = new bool[1, 3],
+                    PatternType = PatternType.Oscillator
+                }
+            };
+        }
+
+        public void ApplyTemplatePattern(string template, int x, int y)
+        {
         }
     }
 }
