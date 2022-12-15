@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex">
+        <div class="d-flex flex-wrap">
             <div class="card bg-light">
                 <div class="card-header">
                     <h6 class="text-dark mb-0">Oscillators</h6>
@@ -181,12 +181,12 @@
         _timer = new Stopwatch();
     }
 
-    private void Reset()
+    private async Task Reset()
     {
         Stop();
         _timer.Reset();
         _gameBoard.Reset();
+        await Task.Delay(150);
         _populationCount = 0;
     }
-
 }
