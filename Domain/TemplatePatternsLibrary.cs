@@ -13,6 +13,9 @@ public static class TemplatePatternsLibrary
             GetBeacon(),
             
             GetGlider(),
+            GetLightWeightSpaceship(),
+            GetMiddleWeightSpaceship(),
+            GetHeavyWeightSpaceship()
         };
     }
 
@@ -34,6 +37,81 @@ public static class TemplatePatternsLibrary
         return glider;
     }
 
+    private static TemplatePattern GetLightWeightSpaceship()
+    {
+        var sSpaceship = new TemplatePattern
+        {
+            Name = "Small Spaceship",
+            Cells = new bool[5, 4],
+            PatternType = PatternType.Spaceship
+        };
+        sSpaceship.Cells[1, 0] = true;
+        sSpaceship.Cells[2, 0] = true;
+        sSpaceship.Cells[3, 0] = true;
+        sSpaceship.Cells[4, 0] = true;
+        sSpaceship.Cells[0, 1] = true;
+        sSpaceship.Cells[4, 1] = true;
+        sSpaceship.Cells[4, 2] = true;
+        sSpaceship.Cells[0, 3] = true;
+        sSpaceship.Cells[3, 3] = true;
+        return sSpaceship;
+    }
+
+    private static TemplatePattern GetMiddleWeightSpaceship()
+    {
+        var mSpaceship = new TemplatePattern
+        {
+            Name = "Medium Spaceship",
+            Cells = new bool[6, 4],
+            PatternType = PatternType.Spaceship
+        };
+        mSpaceship.Cells[1, 0] = true;
+        mSpaceship.Cells[2, 0] = true;
+        mSpaceship.Cells[3, 0] = true;
+        mSpaceship.Cells[0, 1] = true;
+        mSpaceship.Cells[1, 1] = true;
+        mSpaceship.Cells[2, 1] = true;
+        mSpaceship.Cells[3, 1] = true;
+        mSpaceship.Cells[4, 1] = true;
+        mSpaceship.Cells[0, 2] = true;
+        mSpaceship.Cells[1, 2] = true;
+        mSpaceship.Cells[2, 2] = true;
+        mSpaceship.Cells[4, 2] = true;
+        mSpaceship.Cells[5, 2] = true;
+        mSpaceship.Cells[3, 3] = true;
+        mSpaceship.Cells[4, 3] = true;
+        return mSpaceship;
+    }
+    
+    private static TemplatePattern GetHeavyWeightSpaceship()
+    {
+        var mSpaceship = new TemplatePattern
+        {
+            Name = "Large Spaceship",
+            Cells = new bool[7, 4],
+            PatternType = PatternType.Spaceship
+        };
+        mSpaceship.Cells[1, 0] = true;
+        mSpaceship.Cells[2, 0] = true;
+        mSpaceship.Cells[3, 0] = true;
+        mSpaceship.Cells[4, 0] = true;
+        mSpaceship.Cells[0, 1] = true;
+        mSpaceship.Cells[1, 1] = true;
+        mSpaceship.Cells[2, 1] = true;
+        mSpaceship.Cells[3, 1] = true;
+        mSpaceship.Cells[4, 1] = true;
+        mSpaceship.Cells[5, 1] = true;
+        mSpaceship.Cells[0, 2] = true;
+        mSpaceship.Cells[1, 2] = true;
+        mSpaceship.Cells[2, 2] = true;
+        mSpaceship.Cells[3, 2] = true;
+        mSpaceship.Cells[5, 2] = true;
+        mSpaceship.Cells[6, 2] = true;
+        mSpaceship.Cells[4, 3] = true;
+        mSpaceship.Cells[5, 3] = true;
+        return mSpaceship;
+    }
+    
     #endregion
     #region Oscillators
     
