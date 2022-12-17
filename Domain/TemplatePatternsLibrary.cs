@@ -11,6 +11,7 @@ public static class TemplatePatternsLibrary
             GetBlinker(),
             GetToad(),
             GetBeacon(),
+            GetPulsar(),
             
             GetGlider(),
             GetLightWeightSpaceship(),
@@ -163,6 +164,103 @@ public static class TemplatePatternsLibrary
         blinker.Cells[2, 3] = true;
         blinker.Cells[3, 3] = true;
         return blinker;
+    }
+    
+    private static TemplatePattern GetPulsar()
+    {
+        var pulsar = new TemplatePattern
+        {
+            Name = "Pulsar",
+            Cells = new bool[13, 13],
+            PatternType = PatternType.Oscillator
+        };
+        pulsar.Cells[2, 0] = true;
+        pulsar.Cells[3, 0] = true;
+        pulsar.Cells[9, 0] = true;
+        pulsar.Cells[10, 0] = true;
+        
+        pulsar.Cells[3, 1] = true;
+        pulsar.Cells[4, 1] = true;
+        pulsar.Cells[8, 1] = true;
+        pulsar.Cells[9, 1] = true;
+        
+        pulsar.Cells[0, 2] = true;
+        pulsar.Cells[3, 2] = true;
+        pulsar.Cells[5, 2] = true;
+        pulsar.Cells[7, 2] = true;
+        pulsar.Cells[9, 2] = true;
+        pulsar.Cells[12, 2] = true;
+        
+        pulsar.Cells[0, 3] = true;
+        pulsar.Cells[1, 3] = true;
+        pulsar.Cells[2, 3] = true;
+        pulsar.Cells[4, 3] = true;
+        pulsar.Cells[5, 3] = true;
+        pulsar.Cells[7, 3] = true;
+        pulsar.Cells[8, 3] = true;
+        pulsar.Cells[10, 3] = true;
+        pulsar.Cells[11, 3] = true;
+        pulsar.Cells[12, 3] = true;
+        
+        pulsar.Cells[1, 4] = true;
+        pulsar.Cells[3, 4] = true;
+        pulsar.Cells[5, 4] = true;
+        pulsar.Cells[7, 4] = true;
+        pulsar.Cells[9, 4] = true;
+        pulsar.Cells[11, 4] = true;
+        
+        pulsar.Cells[2, 5] = true;
+        pulsar.Cells[3, 5] = true;
+        pulsar.Cells[4, 5] = true;
+        pulsar.Cells[8, 5] = true;
+        pulsar.Cells[9, 5] = true;
+        pulsar.Cells[10, 5] = true;
+        
+        //Inversed from here
+        
+        pulsar.Cells[2, 7] = true;
+        pulsar.Cells[3, 7] = true;
+        pulsar.Cells[4, 7] = true;
+        pulsar.Cells[8, 7] = true;
+        pulsar.Cells[9, 7] = true;
+        pulsar.Cells[10, 7] = true;
+        
+        pulsar.Cells[1, 8] = true;
+        pulsar.Cells[3, 8] = true;
+        pulsar.Cells[5, 8] = true;
+        pulsar.Cells[7, 8] = true;
+        pulsar.Cells[9, 8] = true;
+        pulsar.Cells[11, 8] = true;
+        
+        pulsar.Cells[0, 9] = true;
+        pulsar.Cells[1, 9] = true;
+        pulsar.Cells[2, 9] = true;
+        pulsar.Cells[4, 9] = true;
+        pulsar.Cells[5, 9] = true;
+        pulsar.Cells[7, 9] = true;
+        pulsar.Cells[8, 9] = true;
+        pulsar.Cells[10, 9] = true;
+        pulsar.Cells[11, 9] = true;
+        pulsar.Cells[12, 9] = true;
+        
+        pulsar.Cells[0, 10] = true;
+        pulsar.Cells[3, 10] = true;
+        pulsar.Cells[5, 10] = true;
+        pulsar.Cells[7, 10] = true;
+        pulsar.Cells[9, 10] = true;
+        pulsar.Cells[12, 10] = true;
+        
+        pulsar.Cells[3, 11] = true;
+        pulsar.Cells[4, 11] = true;
+        pulsar.Cells[8, 11] = true;
+        pulsar.Cells[9, 11] = true;
+        
+        pulsar.Cells[2, 12] = true;
+        pulsar.Cells[3, 12] = true;
+        pulsar.Cells[9, 12] = true;
+        pulsar.Cells[10, 12] = true;
+        
+        return pulsar;
     }
     
     #endregion
