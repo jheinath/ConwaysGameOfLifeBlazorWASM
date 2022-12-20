@@ -69,3 +69,21 @@ a, .btn-link {
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 }
+
+
+.square {
+    position: relative;
+    width: 50%;
+}
+
+.square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.contentSquare {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
