@@ -7,17 +7,16 @@
     <div class="row d-flex justify-content-center">
         <div class="card bg-light col p-0">
             <div class="card-header p-2">
-                <div class="d-flex justify-content-between flex-wrap">
-                    <div style="opacity: 0">Easter egg found</div>
-                    <h4 class="text-dark pt-0 pb-0 mb-0 mt-0">Conway's Game of Life</h4>
-                    <div class="custom-control custom-switch prevent-select align-self-end">
-                        <input type="checkbox" class="custom-control-input" id="darkModeSwitch" @onclick="ToggleDarkMode">
+                <div class="d-flex justify-content-end text-center">
+                    <h5 class="text-dark pt-0 pb-0 mb-0 mt-0 col-4">Conway's Game of Life</h5>
+                    <div class="col-4 custom-control custom-switch prevent-select pl-3 text-right">
                         <label class="custom-control-label text-dark" for="darkModeSwitch">Dark Mode</label>
+                        <input type="checkbox" class="custom-control-input" id="darkModeSwitch" @onclick="ToggleDarkMode">
                     </div>
                 </div>
             </div>
             <div class="card-body p-0">
-                <div class="card-body d-flex justify-content-around bg-light m-0 p-1 flex-wrap">
+                <div class="card-body d-flex justify-content-around bg-light m-0 p-1 flex-wrap text-center">
                     <div>
                         <h6 class="card-title text-dark">Population Count</h6>
                         <p class="card-text text-dark">@_populationCount</p>
