@@ -8,6 +8,7 @@
     text-align: center;
     height: auto;
     cursor: crosshair;
+    grid-template-rows: repeat(40, 2vw); grid-template-columns: repeat(40, 2vw);
 }
 
 #gridWrapper div {
@@ -70,20 +71,8 @@ a, .btn-link {
     user-select: none; /* Standard syntax */
 }
 
-
-.square {
-    position: relative;
-    width: 50%;
-}
-
-.square:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-}
-
-.contentSquare {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+@media only screen and (min-width: 1000px) {
+    #gridWrapper {
+        grid-template-rows: repeat(40, 0.8vw); grid-template-columns: repeat(40, 0.8vw);
+    }
 }
