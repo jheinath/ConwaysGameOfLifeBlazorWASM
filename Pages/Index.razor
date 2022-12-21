@@ -168,10 +168,10 @@
         while (_isStarted)
         {
             await Task.Delay(50);
-            _gameBoard.Update();
+            var isAnyCellAlive = _gameBoard.Update();
             _populationCount++;
             StateHasChanged();
-            if (_gameBoard.IsNoCellAlive())
+            if (!isAnyCellAlive)
                 Stop();
         }
     }

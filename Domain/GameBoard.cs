@@ -13,19 +13,6 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
         public IEnumerable<TemplatePattern> SpaceshipTemplatePattern =>
             TemplatePatterns.Where(x => x.PatternType == PatternType.Spaceship);
 
-        public bool IsNoCellAlive()
-        {
-            for (var i = 0; i < Cells.GetLength(0); i++)
-            {
-                for (var j = 0; j < Cells.GetLength(1); j++)
-                {
-                    if (Cells[i, j]) return false;
-                }
-            }
-
-            return true;
-        }
-
         private GameBoard(int size, bool[,] startingCells)
         {
             TemplatePatterns = TemplatePatternsLibrary.GetTemplatePatterns();
@@ -52,19 +39,24 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
             return new GameBoard(size, startingCells);
         }
 
-        public void Update()
+        public bool Update()
         {
+            var result = false;
             var currentCells = Cells;
             var updatedCells = new bool[Cells.GetLength(0), Cells.GetLength(1)];
             for (var i = 0; i < currentCells.GetLength(0); i++)
             {
                 for (var j = 0; j < currentCells.GetLength(1); j++)
                 {
-                    updatedCells[i, j] = ShouldCellBeAlive(i, j);
+                    var shouldCellBeAlive = ShouldCellBeAlive(i, j);
+                    updatedCells[i, j] = shouldCellBeAlive;
+                    if (shouldCellBeAlive)
+                        result = true;
                 }
             }
 
             Cells = updatedCells;
+            return result;
         }
 
         private bool ShouldCellBeAlive(int x, int y)
