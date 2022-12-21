@@ -32,9 +32,9 @@
     <div class="row d-flex justify-content-center">
         <div class="p-0 m-0">
             <div class="col p-0 m-0 mt-1 mb-1" id="gridWrapper">
-                @for (var i = 1; i <= Size; i++)
+                @for (var i = 1; i <= GameBoard.Size; i++)
                 {
-                    for (var j = 1; j <= Size; j++)
+                    for (var j = 1; j <= GameBoard.Size; j++)
                     {
                         var x = i - 1;
                         var y = j - 1;
@@ -115,7 +115,6 @@
 </div>
 
 @code {
-        private const int Size = 40;
     private GameBoard _gameBoard;
     private bool _isStarted;
     private int _populationCount;
@@ -167,8 +166,8 @@
         _template = null;
         while (_isStarted)
         {
-            await Task.Delay(50);
-            var isAnyCellAlive = _gameBoard.Update();
+            var isAnyCellAlive = await _gameBoard.Update();
+            await Task.Delay(5);
             _populationCount++;
             StateHasChanged();
             if (!isAnyCellAlive)
@@ -186,7 +185,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        _gameBoard = GameBoard.Create(Size, new bool[Size, Size]);
+        _gameBoard = GameBoard.Create();
         _isStarted = false;
         _populationCount = 0;
         _timer = new Stopwatch();

@@ -1,52 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ConwaysGameOfLifeBlazorWASM.Domain
 {
     public class GameBoard
     {
-        public bool[,] Cells { get; private set; }
-        public IEnumerable<TemplatePattern> TemplatePatterns { get; }
+        public Array2D Cells { get; private set; }
+        public const int Size = 40;
+        private IEnumerable<TemplatePattern> TemplatePatterns { get; }
         public IEnumerable<TemplatePattern> OscillatorTemplatePattern =>
             TemplatePatterns.Where(x => x.PatternType == PatternType.Oscillator);
         public IEnumerable<TemplatePattern> SpaceshipTemplatePattern =>
             TemplatePatterns.Where(x => x.PatternType == PatternType.Spaceship);
 
-        private GameBoard(int size, bool[,] startingCells)
+        private GameBoard()
         {
             TemplatePatterns = TemplatePatternsLibrary.GetTemplatePatterns();
-            Cells = new bool[size, size];
-
-            for (var i = 0; i < Cells.GetLength(0); i++)
-            {
-                for (var j = 0; j < Cells.GetLength(1); j++)
-                {
-                    if (startingCells[i, j])
-                    {
-                        Cells[i, j] = true;
-                    }
-                    else
-                    {
-                        Cells[i, j] = false;
-                    }
-                }
-            }
+            Cells = new Array2D(Size, Size);
         }
 
-        public static GameBoard Create(int size, bool[,] startingCells)
+        public static GameBoard Create()
         {
-            return new GameBoard(size, startingCells);
+            return new GameBoard();
         }
 
-        public bool Update()
+        public async Task<bool> Update()
+        {
+            var updatedCells = new Array2D(Cells.Height, Cells.Width);
+            var updateTaskAreaOne = Task.Run(() => UpdateCellArea(0, 0, 39, 9, updatedCells));
+            var updateTaskAreaTwo = Task.Run(() => UpdateCellArea(0, 10, 39, 19, updatedCells));
+            var updateTaskAreaThree = Task.Run(() => UpdateCellArea(0, 20, 39, 29, updatedCells));
+            var updateTaskAreaFour = Task.Run(() => UpdateCellArea(0, 30, 39, 39, updatedCells));
+
+            var tasks = Task.WhenAll(updateTaskAreaOne, updateTaskAreaTwo, updateTaskAreaThree, updateTaskAreaFour);
+
+            var results = await tasks;
+            var isAnyCellAlive = results.Any(x => x);
+
+            Cells = updatedCells;
+            return isAnyCellAlive;
+        }
+
+        private bool UpdateCellArea(int startX, int startY, int endX, int endY, Array2D updatedCells)
         {
             var result = false;
-            var currentCells = Cells;
-            var updatedCells = new bool[Cells.GetLength(0), Cells.GetLength(1)];
-            for (var i = 0; i < currentCells.GetLength(0); i++)
+            for (var i = startX; i <= endX; i++)
             {
-                for (var j = 0; j < currentCells.GetLength(1); j++)
+                for (var j = startY; j <= endY; j++)
                 {
                     var shouldCellBeAlive = ShouldCellBeAlive(i, j);
                     updatedCells[i, j] = shouldCellBeAlive;
@@ -55,7 +57,6 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
                 }
             }
 
-            Cells = updatedCells;
             return result;
         }
 
@@ -90,8 +91,8 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
             {
                 for (var j = -1; j < 2; j++)
                 {
-                    if ((i + x < 0 || i + x >= Cells.GetLength(0)) ||
-                        (j + y < 0 || j + y >= Cells.GetLength(1))) continue;
+                    if ((i + x < 0 || i + x >= Cells.Width) ||
+                        (j + y < 0 || j + y >= Cells.Height)) continue;
 
                     if ((i == 0 && j == 0) == false)
                         result.Add(Cells[i+x, j+y]);
@@ -106,9 +107,9 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
         {
             var random = new Random();
 
-            for (var i = 0; i < Cells.GetLength(0); i++)
+            for (var i = 0; i < Cells.Width; i++)
             {
-                for (var j = 0; j < Cells.GetLength(1); j++)
+                for (var j = 0; j < Cells.Height; j++)
                 {
                     Cells[i, j] = random.Next(-1, 2) == 0;
                 }
@@ -117,9 +118,9 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
 
         public void Reset()
         {
-            for (var i = 0; i < Cells.GetLength(0); i++)
+            for (var i = 0; i < Cells.Width; i++)
             {
-                for (var j = 0; j < Cells.GetLength(1); j++)
+                for (var j = 0; j < Cells.Height; j++)
                 {
                     Cells[i, j] = false;
                 }
@@ -137,8 +138,8 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
                 {
                     var calculatedX = i + x;
                     var calculatedY = y + j;
-                    if (calculatedX >= Cells.GetLength(0)) return;
-                    if (calculatedY >= Cells.GetLength(1)) return;
+                    if (calculatedX >= Cells.Width) return;
+                    if (calculatedY >= Cells.Height) return;
                     Cells[calculatedX, calculatedY] = selectedTemplate.Cells[i, j];
                 }
             }
