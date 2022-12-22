@@ -8,7 +8,7 @@
     text-align: center;
     height: auto;
     cursor: crosshair;
-    grid-template-rows: repeat(40, 2vw); grid-template-columns: repeat(40, 2vw);
+    grid-template-rows: repeat(70, 1.3vw); grid-template-columns: repeat(70, 1.3vw);
 }
 
 #gridWrapper div {
@@ -71,8 +71,8 @@ a, .btn-link {
     user-select: none; /* Standard syntax */
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 900px) {
     #gridWrapper {
-        grid-template-rows: repeat(40, 0.85vw); grid-template-columns: repeat(40, 0.85vw);
+        grid-template-rows: repeat(70, 0.5vw); grid-template-columns: repeat(70, 0.50vw);
     }
 }
