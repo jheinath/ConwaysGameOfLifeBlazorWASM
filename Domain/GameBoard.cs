@@ -100,7 +100,6 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
                 }
             }
 
-
             return result;
         }
 
