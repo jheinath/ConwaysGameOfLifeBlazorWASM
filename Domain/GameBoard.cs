@@ -29,12 +29,13 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
         public async Task<bool> Update()
         {
             var updatedCells = new Array2D(Cells.Height, Cells.Width);
-            var updateTaskAreaOne = Task.Run(() => UpdateCellArea(0, 0, 39, 9, updatedCells));
-            var updateTaskAreaTwo = Task.Run(() => UpdateCellArea(0, 10, 39, 19, updatedCells));
-            var updateTaskAreaThree = Task.Run(() => UpdateCellArea(0, 20, 39, 29, updatedCells));
-            var updateTaskAreaFour = Task.Run(() => UpdateCellArea(0, 30, 39, 39, updatedCells));
-
-            var tasks = Task.WhenAll(updateTaskAreaOne, updateTaskAreaTwo, updateTaskAreaThree, updateTaskAreaFour);
+            var taskCollection = new List<Task<bool>>();
+            for (var i = 0; i < Size; i += 10)
+            {
+                var row = i;
+                taskCollection.Add(Task.Run(() => UpdateCellArea(0, row, Size - 1, row + 9, updatedCells)));
+            }
+            var tasks = Task.WhenAll(taskCollection);
 
             var results = await tasks;
             var isAnyCellAlive = results.Any(x => x);
