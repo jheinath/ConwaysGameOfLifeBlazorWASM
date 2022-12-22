@@ -14,4 +14,4 @@ Newly added:
 - templates
 - responsive design for mobile, tablet and desktop
 
-![screenshot1](https://user-images.githubusercontent.com/44709506/124485069-7ca16f00-ddac-11eb-8fbd-a4c6bc3b147b.JPG)
+![Screenshot](https://raw.githubusercontent.com/jheinath/ConwaysGameOfLifeBlazorWASM/master/Images/Screenshot.png)
