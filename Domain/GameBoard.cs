@@ -8,7 +8,7 @@ namespace ConwaysGameOfLifeBlazorWASM.Domain
     public class GameBoard
     {
         public Array2D Cells { get; private set; }
-        public const int Size = 70;
+        public const int Size = 50;
         private IEnumerable<TemplatePattern> TemplatePatterns { get; }
         public IEnumerable<TemplatePattern> OscillatorTemplatePattern =>
             TemplatePatterns.Where(x => x.PatternType == PatternType.Oscillator);
