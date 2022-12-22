@@ -5,6 +5,8 @@ Play with it here: https://jheinath.github.io/ConwaysGameOfLifeBlazorWASM/
 
 If you don't know about Conway's Game of Life check this out: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life 
 
+In case you can imagine an additional feature feel free to submit an issue or create a pull request.
+
 Newly added:
 - reset button
 - random button
