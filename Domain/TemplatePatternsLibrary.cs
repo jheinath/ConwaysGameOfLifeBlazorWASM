@@ -14,6 +14,7 @@ public static class TemplatePatternsLibrary
             GetPulsar(),
             GetPentaDecathlon(),
             GetGosperGilderGun(),
+            GetSimkinGilderGun(),
 
             GetGlider(),
             GetLightWeightSpaceship(),
@@ -164,6 +165,55 @@ public static class TemplatePatternsLibrary
         gliderGun.Cells[34, 3] = true;
         gliderGun.Cells[35, 2] = true;
         gliderGun.Cells[35, 3] = true;
+        
+        return gliderGun;
+    }
+    
+    private static TemplatePattern GetSimkinGilderGun()
+    {
+        var gliderGun = new TemplatePattern
+        {
+            Name = "Simkin Glider Gun",
+            Cells = new bool[33, 21],
+            PatternType = PatternType.Spaceship
+        };
+
+        //Three blocks
+        gliderGun.Cells[0, 0] = true;
+        gliderGun.Cells[0, 1] = true;
+        gliderGun.Cells[1, 0] = true;
+        gliderGun.Cells[1, 1] = true;
+        
+        gliderGun.Cells[4, 3] = true;
+        gliderGun.Cells[4, 4] = true;
+        gliderGun.Cells[5, 3] = true;
+        gliderGun.Cells[5, 4] = true;
+        
+        gliderGun.Cells[7, 0] = true;
+        gliderGun.Cells[7, 1] = true;
+        gliderGun.Cells[8, 0] = true;
+        gliderGun.Cells[8, 1] = true;
+        
+        //Last block right
+        gliderGun.Cells[31, 11] = true;
+        gliderGun.Cells[31, 12] = true;
+        gliderGun.Cells[32, 11] = true;
+        gliderGun.Cells[32, 12] = true;
+        
+        //rest in "center"
+        gliderGun.Cells[21, 10] = true;
+        gliderGun.Cells[21, 11] = true;
+        gliderGun.Cells[21, 12] = true;
+        gliderGun.Cells[22, 9] = true;
+        gliderGun.Cells[22, 12] = true;
+        gliderGun.Cells[23, 9] = true;
+        gliderGun.Cells[23, 12] = true;
+        gliderGun.Cells[25, 9] = true;
+        gliderGun.Cells[26, 9] = true;
+        gliderGun.Cells[26, 13] = true;
+        gliderGun.Cells[27, 10] = true;
+        gliderGun.Cells[27, 12] = true;
+        gliderGun.Cells[28, 11] = true;
         
         return gliderGun;
     }
