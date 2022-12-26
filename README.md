@@ -15,5 +15,6 @@ Newly added:
 - dark mode
 - templates
 - responsive design for mobile, tablet and desktop
+- simkin glider gun and gosper glider gun as template patterns
 
 ![Screenshot](https://raw.githubusercontent.com/jheinath/ConwaysGameOfLifeBlazorWASM/master/Images/Screenshot.png)
