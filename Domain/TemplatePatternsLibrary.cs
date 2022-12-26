@@ -13,6 +13,7 @@ public static class TemplatePatternsLibrary
             GetBeacon(),
             GetPulsar(),
             GetPentaDecathlon(),
+            GetGosperGilderGun(),
 
             GetGlider(),
             GetLightWeightSpaceship(),
@@ -112,6 +113,59 @@ public static class TemplatePatternsLibrary
         mSpaceship.Cells[4, 3] = true;
         mSpaceship.Cells[5, 3] = true;
         return mSpaceship;
+    }
+    
+    private static TemplatePattern GetGosperGilderGun()
+    {
+        var gliderGun = new TemplatePattern
+        {
+            Name = "Gosper Glider Gun",
+            Cells = new bool[36, 9],
+            PatternType = PatternType.Spaceship
+        };
+        
+        //1st block
+        gliderGun.Cells[0, 4] = true;
+        gliderGun.Cells[0, 5] = true;
+        gliderGun.Cells[1, 5] = true;
+        gliderGun.Cells[1, 4] = true;
+        //2nd block
+        gliderGun.Cells[10, 4] = true;
+        gliderGun.Cells[10, 5] = true;
+        gliderGun.Cells[10, 6] = true;
+        gliderGun.Cells[11, 3] = true;
+        gliderGun.Cells[11, 7] = true;
+        gliderGun.Cells[12, 2] = true;
+        gliderGun.Cells[12, 8] = true;
+        gliderGun.Cells[13, 2] = true;
+        gliderGun.Cells[13, 8] = true;
+        gliderGun.Cells[14, 5] = true;
+        gliderGun.Cells[15, 3] = true;
+        gliderGun.Cells[15, 7] = true;
+        gliderGun.Cells[16, 4] = true;
+        gliderGun.Cells[16, 5] = true;
+        gliderGun.Cells[16, 6] = true;
+        gliderGun.Cells[17, 5] = true;
+        //3rd block
+        gliderGun.Cells[20, 2] = true;
+        gliderGun.Cells[20, 3] = true;
+        gliderGun.Cells[20, 4] = true;
+        gliderGun.Cells[21, 2] = true;
+        gliderGun.Cells[21, 3] = true;
+        gliderGun.Cells[21, 4] = true;
+        gliderGun.Cells[22, 1] = true;
+        gliderGun.Cells[22, 5] = true;
+        gliderGun.Cells[24, 0] = true;
+        gliderGun.Cells[24, 1] = true;
+        gliderGun.Cells[24, 5] = true;
+        gliderGun.Cells[24, 6] = true;
+        //4th block
+        gliderGun.Cells[34, 2] = true;
+        gliderGun.Cells[34, 3] = true;
+        gliderGun.Cells[35, 2] = true;
+        gliderGun.Cells[35, 3] = true;
+        
+        return gliderGun;
     }
 
     #endregion
