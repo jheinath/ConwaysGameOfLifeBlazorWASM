@@ -2,6 +2,8 @@
 
 [![Deploy to GitHub Pages](https://github.com/jheinath/ConwaysGameOfLifeBlazorWASM/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/jheinath/ConwaysGameOfLifeBlazorWASM/actions/workflows/main.yml)
 
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jheinath.github.io/ConwaysGameOfLifeBlazorWASM/)
+
 Just a small project to learn some Blazor. Moreover I always wanted to code Conway's Game of Life. So here's my try.
 Play with it here: https://jheinath.github.io/ConwaysGameOfLifeBlazorWASM/
 
