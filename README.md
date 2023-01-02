@@ -1,5 +1,7 @@
 # ConwaysGameOfLifeBlazorWASM
 
+[![Deploy to GitHub Pages](https://github.com/jheinath/ConwaysGameOfLifeBlazorWASM/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/jheinath/ConwaysGameOfLifeBlazorWASM/actions/workflows/main.yml)
+
 Just a small project to learn some Blazor. Moreover I always wanted to code Conway's Game of Life. So here's my try.
 Play with it here: https://jheinath.github.io/ConwaysGameOfLifeBlazorWASM/
 
